@@ -4,7 +4,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.minso.chathead.API.ChatHeadAPI;
-import net.minso.chathead.API.impl.CrafatarSource;
 import ovh.mythmc.social.api.players.SocialPlayer;
 import ovh.mythmc.social.api.text.parsers.SocialPlaceholder;
 
@@ -14,7 +13,11 @@ import java.util.UUID;
 
 public final class ChatHeadFontPlaceholder extends SocialPlaceholder {
 
-    private final ChatHeadAPI chatHeadAPI = ChatHeadAPI.getInstance();
+    private final ChatHeadAPI chatHeadAPI;
+
+    public ChatHeadFontPlaceholder() {
+        chatHeadAPI = ChatHeadAPI.getInstance();
+    }
 
     private final Map<UUID, String> cachedHeads = new HashMap<>();
 
@@ -31,7 +34,6 @@ public final class ChatHeadFontPlaceholder extends SocialPlaceholder {
         if (player.getPlayer() == null)
             return "";
 
-        chatHeadAPI.getHeadAsString(player.getUuid(), true, new CrafatarSource());
         String head = chatHeadAPI.getHeadAsString(player.getPlayer());
         Component deserializedHead = LegacyComponentSerializer.legacySection().deserialize(head);
         String serializedHead = MiniMessage.miniMessage().serialize(deserializedHead);

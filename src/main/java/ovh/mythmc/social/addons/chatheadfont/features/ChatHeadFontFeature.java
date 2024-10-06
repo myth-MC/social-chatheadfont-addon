@@ -7,7 +7,11 @@ import ovh.mythmc.social.api.features.SocialFeatureType;
 
 public final class ChatHeadFontFeature implements SocialFeature {
 
-    private final ChatHeadFontPlaceholder placeholder = new ChatHeadFontPlaceholder();
+    private final ChatHeadFontPlaceholder placeholder;
+
+    public ChatHeadFontFeature() {
+        placeholder = new ChatHeadFontPlaceholder();
+    }
 
     @Override
     public SocialFeatureType featureType() {
