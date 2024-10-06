@@ -1,7 +1,7 @@
 name: social-chatheadfont-addon
 authors: [myth-MC, U8092]
 version: 0.1.1
-api-version: 1.20
+api-version: 1.16
 
 main: ovh.mythmc.social.addons.chatheadfont.SocialChatHeadFont
 depend: [ social, ChatHeadFont ]
