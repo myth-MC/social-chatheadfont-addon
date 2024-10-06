@@ -6,10 +6,12 @@ import ovh.mythmc.social.api.features.SocialGestalt;
 
 public final class SocialChatHeadFont extends JavaPlugin {
 
-    private final ChatHeadFontFeature chatHeadFontFeature = new ChatHeadFontFeature();
+    private ChatHeadFontFeature chatHeadFontFeature;
 
     @Override
     public void onEnable() {
+        chatHeadFontFeature = new ChatHeadFontFeature();
+
         SocialGestalt.get().registerFeature(chatHeadFontFeature);
         SocialGestalt.get().enableFeature(chatHeadFontFeature);
     }
